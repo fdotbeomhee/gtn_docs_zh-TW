@@ -1,0 +1,360 @@
+site_name: Griptape Nodes 繁體中文技術文檔
+site_url: https://docs.griptapenodes.com/zh-TW/
+copyright: "&copy; Griptape, Inc."
+
+theme:
+  name: material
+  language: zh-Hant
+  logo: assets/img/griptape_nodes_header_logo.svg
+  palette:
+    # 深色模式
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/lightbulb-outline
+        name: 切換至淺色模式
+    # 淺色模式
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/lightbulb
+        name: 切換至深色模式
+  features:
+    - content.code.copy
+    - navigation.tabs
+    - navigation.top
+    - navigation.tabs.sticky
+    - navigation.sections
+
+markdown_extensions:
+  - pymdownx.highlight
+  - admonition
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - tables
+  - md_in_html
+  - attr_list
+  - toc:
+      toc_depth: 3
+
+extra_css:
+  - assets/css/extra.css
+
+nav:
+  - 快速入門:                      # Get Started
+      - 概述: index.md
+      - 安裝: installation.md
+      - 解除安裝: uninstalling.md
+      - 架構: architecture.md
+      - 教學:
+          - 概述: tutorials/index.md
+          - 1. 編輯器導覽: tutorials/00_tour/index.md
+          - 2. 圖像提示詞生成: tutorials/01_prompt_an_image/index.md
+          - 3. 智慧體協調: tutorials/02_coordinating_agents/index.md
+          - 4. 提示詞對比: tutorials/03_compare_prompts/index.md
+          - 5. 構建攝影團隊: tutorials/04_photography_team/index.md
+      - 常見問題: faq.md
+      - 疑難排解: troubleshooting.md
+      - 術語表: glossary.md
+  - 指南:                        # Guides
+      - 桌面應用程式:
+          - 應用程式設定: guides/desktop/app_settings.md
+      - 編輯器:
+          - 概述: guides/editor/index.md
+          - 快速鍵: guides/editor/keyboard_shortcuts.md
+          - 節點操作指南: guides/editor/working_with_nodes.md
+          - 節點分組: guides/editor/node_groups.md
+          - 執行工作流程: guides/editor/running_workflows.md
+          - 媒體檢視器與編輯器: guides/editor/media_editors.md
+          - 管理模型與程式庫: guides/editor/managing_models_and_libraries.md
+          - Beta 測試功能: guides/editor/beta_features.md
+      - 智慧體:
+          - 概述: guides/agent/index.md
+          - 對話執行緒: guides/agent/threads.md
+          - 在工作流程中使用: guides/agent/using_in_workflows.md
+          - 自訂設定:
+              - 個人化: guides/agent/personalization.md
+              - 技能 (Skills): guides/agent/skills.md
+          - 連線整合:
+              - MCP 伺服器: guides/agent/mcp_servers.md
+              - AI 提供商:
+                  - 概述: guides/agent/providers/index.md
+                  - Griptape Cloud: guides/agent/providers/griptape_cloud.md
+                  - Ollama: guides/agent/providers/ollama.md
+                  - LM Studio: guides/agent/providers/lm_studio.md
+                  - 自訂 (相容 OpenAI): guides/agent/providers/custom.md
+      - 引擎:
+          - 引擎設定: guides/configuration.md
+          - 節點程式庫: guides/libraries.md
+      - 專案系統:
+          - 概述: guides/projects/index.md
+          - 在 GUI 中管理專案: guides/projects/gui_guide.md
+          - 工作區: guides/projects/workspace.md
+          - 專案: guides/projects/projects.md
+          - 目錄: guides/projects/directories.md
+          - 巨集 (Macros): guides/projects/macros.md
+          - 情境 (Situations): guides/projects/situations.md
+          - 環境與內建變數: guides/projects/environment.md
+          - 專案變數: guides/projects/variables.md
+          - 檔案副檔名目錄: guides/projects/file_extension_directories.md
+          - 序列: guides/projects/sequences.md
+          - 版本鎖定: guides/projects/version_pinning.md
+          - 定製指南: guides/projects/customization.md
+      - 工作流程:
+          - 工作流程變數: guides/variables.md
+          - 資產與輸出: guides/assets.md
+          - 工作流程版本: guides/workflow_versions.md
+          - 工作流程發布: guides/publishing.md
+      - MCP:
+          - 概述: guides/mcp/index.md
+          - 快速上手: guides/mcp/getting_started.md
+          - 連線類型:
+              - 本機處理程序 (stdio): guides/mcp/connection_types/stdio.md
+              - Server-Sent Events (SSE): guides/mcp/connection_types/sse.md
+              - 可串流 HTTP: guides/mcp/connection_types/streamable_http.md
+              - WebSocket: guides/mcp/connection_types/websocket.md
+          - 智慧體搭配 MCPTask: guides/mcp/mcp_task_agents.md
+          - 智慧體使用本機模型: guides/mcp/advanced_local_models.md
+          - 連線外部 MCP 用戶端: guides/mcp/external_clients.md
+          - MCP 伺服器規則: guides/mcp/rules.md
+          - 範例 MCP 伺服器:
+              - 概述: guides/mcp/servers/index.md
+              - Blender: guides/mcp/servers/blender.md
+              - Exa: guides/mcp/servers/exa.md
+              - Fetch: guides/mcp/servers/fetch.md
+              - Filesystem: guides/mcp/servers/filesystem.md
+              - Maya: guides/mcp/servers/maya.md
+              - Time: guides/mcp/servers/time.md
+      - 外部服務整合:
+          - OpenAI API Key: guides/integrations/openai.md
+          - Grok API Key: guides/integrations/grok.md
+          - Hugging Face 模型: guides/integrations/hugging_face.md
+  - 節點程式庫:                    # Libraries
+      - 概述: libraries/index.md
+      - 標準庫:
+          - 概述: nodes/overview.md
+          - 3D:
+              - Load 3D: nodes/three_d/load_gltf.md
+          - Agents:
+              - Agent: nodes/agents/create_agent.md
+          - Audio:
+              - Load Audio: nodes/audio/load_audio.md
+              - Microphone: nodes/audio/microphone.md
+              - Transcribe Audio: nodes/audio/transcribe_audio.md
+          - Configs:
+              - Anthropic Prompt: nodes/config/anthropic_prompt_driver.md
+              - Cohere Prompt: nodes/config/cohere_prompt_driver.md
+              - Griptape Cloud Image: nodes/config/griptape_cloud_image_driver.md
+              - Griptape Cloud Prompt: nodes/config/griptape_cloud_prompt_driver.md
+              - Grok Image: nodes/config/grok_image_driver.md
+              - Grok Prompt: nodes/config/grok_prompt_driver.md
+              - Groq Prompt: nodes/config/groq_prompt_driver.md
+              - OpenAI Image: nodes/config/openai_image_driver.md
+              - OpenAI Prompt: nodes/config/openai_prompt_driver.md
+          - Convert:
+              - To JSON: nodes/convert/to_json.md
+          - Dict:
+              - Dict: nodes/dict/create_dict.md
+              - Display Dict: nodes/dict/display_dict.md
+              - Key Value Pair: nodes/dict/key_value_pair.md
+              - Merge Key Value Pairs: nodes/dict/merge_key_value_pair.md
+          - Execution:
+              - End Flow: nodes/execution/end_flow.md
+              - Reroute: nodes/execution/reroute.md
+              - Start Flow: nodes/execution/start_flow.md
+          - Image:
+              - Add Bounding Boxes: nodes/image/add_bounding_boxes.md
+              - Add Text to Existing Image: nodes/image/add_text_to_existing_image.md
+              - Adjust Image EQ: nodes/image/adjust_image_eq.md
+              - Adjust Image Levels: nodes/image/adjust_image_levels.md
+              - Apply Mask: nodes/image/apply_mask.md
+              - Bloom Effect: nodes/image/bloom_effect.md
+              - Color Match: nodes/image/color_match.md
+              - Combine Masks: nodes/image/combine_masks.md
+              - Compare Images: nodes/image/compare_images.md
+              - Create Color Bars: nodes/image/create_color_bars.md
+              - Crop Image: nodes/image/crop_image.md
+              - Describe Image: nodes/image/describe_image.md
+              - Display Channel: nodes/image/display_channel.md
+              - Display Image: nodes/image/display_image.md
+              - Display Image Grid: nodes/image/display_image_grid.md
+              - Display Mask: nodes/image/display_mask.md
+              - Extend Canvas: nodes/image/extend_canvas.md
+              - Extract Key Colors: nodes/image/extract_key_colors.md
+              - Flip Image: nodes/image/flip_image.md
+              - Gaussian Edge Fade: nodes/image/gaussian_edge_fade.md
+              - Generate Image: nodes/image/create_image.md
+              - Image Bash: nodes/image/image_bash.md
+              - Image Blend Compositor: nodes/image/image_blend_compositor.md
+              - Image Grid Splitter: nodes/image/image_grid_splitter.md
+              - Invert Image: nodes/image/invert_image.md
+              - Invert Mask: nodes/image/invert_mask.md
+              - Load Image: nodes/image/load_image.md
+              - Merge Images: nodes/image/merge_images.md
+              - Paint Mask: nodes/image/paint_mask.md
+              - Rescale Image: nodes/image/rescale_image.md
+              - Save Image: nodes/image/save_image.md
+              - Webcam: nodes/image/webcam.md
+          - JSON:
+              - Display JSON: nodes/json/display_json.md
+              - JSON Extract Value: nodes/json/json_extract_value.md
+              - JSON Find: nodes/json/json_find.md
+              - JSON Input: nodes/json/json_input.md
+              - JSON Replace: nodes/json/json_replace.md
+          - Lists:
+              - Add To List: nodes/lists/add_to_list.md
+              - Combine Lists: nodes/lists/combine_lists.md
+              - Create Bool List: nodes/lists/create_bool_list.md
+              - Create Float List: nodes/lists/create_float_list.md
+              - Create Int List: nodes/lists/create_int_list.md
+              - Create List: nodes/lists/create_list.md
+              - Create Text List: nodes/lists/create_text_list.md
+              - Display List: nodes/lists/display_list.md
+              - Get From List: nodes/lists/get_from_list.md
+              - Get Index Of Item: nodes/lists/get_index_of_item.md
+              - Get List Contains Item: nodes/lists/get_list_contains_item.md
+              - Get List Is Empty: nodes/lists/get_list_is_empty.md
+              - Get List Length: nodes/lists/get_list_length.md
+              - Remove From List: nodes/lists/remove_from_list.md
+              - Replace In List: nodes/lists/replace_in_list.md
+              - Select From List: nodes/lists/select_from_list.md
+              - Split List: nodes/lists/split_list.md
+          - Number:
+              - Askulator: nodes/number/askulator.md
+              - Bool Input: nodes/number/create_bool.md
+              - Display Float: nodes/number/display_float.md
+              - Display Int: nodes/number/display_int.md
+              - Float Input: nodes/number/create_float.md
+              - Int Input: nodes/number/create_int.md
+              - Math Operations: nodes/number/math.md
+          - Rules:
+              - Ruleset: nodes/rules/create_ruleset.md
+              - Ruleset List: nodes/rules/ruleset_list.md
+          - Text:
+              - Date and Time: nodes/text/date_and_time.md
+              - Display Text: nodes/text/display_text.md
+              - Evaluate Text Result: nodes/text/evaluate_text_result.md
+              - Load Text: nodes/text/load_text.md
+              - Merge Texts: nodes/text/merge_texts.md
+              - Random Text: nodes/text/random_text.md
+              - Save Text: nodes/text/save_text.md
+              - Scrape Web: nodes/text/scrape_web.md
+              - Search Replace Text: nodes/text/search_replace_text.md
+              - Search Web: nodes/text/search_web.md
+              - Summarize Text: nodes/text/summarize_text.md
+              - Text Input: nodes/text/create_multiline_text.md
+          - Tools:
+              - Calculator: nodes/tools/calculator_tool.md
+              - Date Time: nodes/tools/date_time_tool.md
+              - File Manager: nodes/tools/file_manager_tool.md
+              - Info Retriever: nodes/tools/rag_tool.md
+              - Tool List: nodes/tools/tool_list.md
+              - Web Scraper: nodes/tools/web_scraper_tool.md
+              - Web Search: nodes/tools/web_search_tool.md
+          - Utility:
+              - Note: nodes/utils/note.md
+          - Video:
+              - Add Color Curves: nodes/video/add_color_curves.md
+              - Add Film Grain: nodes/video/add_film_grain.md
+              - Add Overlay: nodes/video/add_overlay.md
+              - Add RGB Shift: nodes/video/add_rgb_shift.md
+              - Add Vignette: nodes/video/add_vignette.md
+              - Adjust Mask Size: nodes/video/adjust_mask_size.md
+              - Adjust Video EQ: nodes/video/adjust_video_eq.md
+              - Change Speed: nodes/video/change_speed.md
+              - Combine Masks Video: nodes/video/combine_masks_video.md
+              - Concatenate Videos: nodes/video/concatenate_videos.md
+              - Display Video: nodes/video/display_video.md
+              - Extract Audio: nodes/video/extract_audio.md
+              - Extract Last Frame: nodes/video/extract_last_frame.md
+              - Flip Video: nodes/video/flip_video.md
+              - Hold Video Frames: nodes/video/hold_video_frames.md
+              - Load Video: nodes/video/load_video.md
+              - Resize Video: nodes/video/resize_video.md
+              - Reverse Video: nodes/video/reverse_video.md
+              - Save Video: nodes/video/save_video.md
+              - Split Video: nodes/video/split_video.md
+              - Video Color Match: nodes/video/video_color_match.md
+      - Diffusers:
+          - 概述: libraries/diffusers/index.md
+          - 管線 (Pipeline):
+              - Modular Diffusion Pipeline Builder: libraries/diffusers/pipeline_builder.md
+              - ControlNet Pipeline: libraries/diffusers/controlnet_pipeline.md
+              - Load LoRA: libraries/diffusers/load_lora.md
+              - LoRA Pipeline: libraries/diffusers/lora_pipeline.md
+          - 建立 (Create):
+              - Create Noise Latents: libraries/diffusers/create_noise_latents.md
+              - Create Empty Latents: libraries/diffusers/empty_latents.md
+          - 處理 (Processing):
+              - Generate Media Latents: libraries/diffusers/generate_media_latents.md
+              - Latent Upsampler: libraries/diffusers/latent_upsampler.md
+          - 轉換 (Transform):
+              - Add Latents: libraries/diffusers/add_latents.md
+              - Subtract Latents: libraries/diffusers/subtract_latents.md
+              - Multiply Latents: libraries/diffusers/multiply_latents.md
+              - Latents Composite Mask: libraries/diffusers/latents_composite_mask.md
+          - 條件控制 (Conditioning):
+              - Configure ControlNet: libraries/diffusers/configure_controlnet.md
+              - Media Generation Conditioning: libraries/diffusers/media_gen_conditioning.md
+          - 編解碼 (Encode / Decode):
+              - Encode Media Latent: libraries/diffusers/encode_media_latent.md
+              - Encode Masked Media Latent: libraries/diffusers/encode_masked_media_latent.md
+              - Decode Media Latent: libraries/diffusers/decode_media_latent.md
+              - Decode HDR Latents: libraries/diffusers/decode_hdr_latents.md
+          - 輸入輸出 (IO):
+              - Save Latent Tensor: libraries/diffusers/save_latent_tensor.md
+      - Advanced Media 程式庫:
+          - 概述: libraries/advanced_media/index.md
+          - Diffusion Pipelines: nodes/advanced_media_library/diffusion_pipelines.md
+          - YOLOv8 Face Detection: nodes/advanced_media_library/yolov8_face_detection.md
+      - OpenColorIO:
+          - 概述: libraries/opencolorio/index.md
+          - Load OCIO Config: libraries/opencolorio/load_ocio_config.md
+          - OCIO Color Parameters: libraries/opencolorio/ocio_color_parameters.md
+      - OpenEXR:
+          - 概述: libraries/openexr/index.md
+          - Load EXR: libraries/openexr/load_exr.md
+          - Display EXR Part: libraries/openexr/display_exr_part.md
+          - Display EXR Channel: libraries/openexr/display_exr_channel.md
+          - Save EXR: libraries/openexr/save_exr.md
+      - Nuke:
+          - 概述: libraries/nuke/index.md
+          - Nuke Start Flow: libraries/nuke/nuke_start_flow.md
+          - Nuke End Flow: libraries/nuke/nuke_end_flow.md
+          - Nuke Script: libraries/nuke/nuke_script.md
+  - 開發:                          # Development
+      - 指令碼撰寫: development/retained_mode.md
+      - 自訂節點:
+          - 概述: development/custom_nodes/index.md
+          - 快速上手: development/custom_nodes/getting_started.md
+          - 參數: development/custom_nodes/parameters.md
+          - 參數 UI 參考: development/custom_nodes/parameter_ui_reference.md
+          - 執行與生命週期: development/custom_nodes/execution_and_lifecycle.md
+          - 專案系統: development/custom_nodes/project_system.md
+          - 最佳實踐與錯誤處理: development/custom_nodes/error_handling.md
+          - 編寫節點程式庫: development/custom_nodes/authoring_libraries.md
+          - 高級程式庫: development/custom_nodes/advanced_libraries.md
+          - 傳遞不可序列化值: development/custom_nodes/passing_unserializable_values.md
+          - 自訂部件 (Widgets): development/custom_nodes/custom_widgets.md
+          - 模式與範例: development/custom_nodes/examples.md
+          - 工作處理程序隔離: development/custom_nodes/node_isolation_with_workers.md
+          - 嚴格模式參考: development/custom_nodes/strict_mode.md
+          - 範例控制節點: development/custom_nodes/example_control_node.py
+      - 智慧體使用指南: for_agents.md
+      - 智慧體技能 (Skills): skills/griptape-nodes-workflows/SKILL.md
+  - 參考:                          # Reference
+      - 命令列介面 (CLI): reference/command_line_interface.md
+      - 設定參考: reference/configuration_reference.md
+  - 企業版:                        # Enterprise
+      - 私有化部署快速入門: enterprise/on_premises_quick_start.md
+      - 管理員儀表板: enterprise/admin_dashboard.md
+      - Cedar 策略: enterprise/cedar_policies.md
+      - 管理伺服器: enterprise/admin_server.md
+      - 使用管理伺服器: enterprise/using_the_admin_server.md
+      - 停用應用程式更新: enterprise/disabling_app_updates.md

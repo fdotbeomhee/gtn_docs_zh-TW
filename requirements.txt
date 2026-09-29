@@ -1,0 +1,6 @@
+mkdocs>=1.5.2
+mkdocs-material>=9.6.9
+pymdown-extensions>=10.17
+python-dotenv>=1.0.1
+requests>=2.31.0
+ruamel.yaml>=0.18.0
